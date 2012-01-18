@@ -6,13 +6,11 @@ from metafunction import curry, uncurry
 
 
 class TestCurrying(TestCase):
-    @expectedFailure
     def test_curry(self):
         "Test that currying works."
         new_sum = curry(sum)
         self.assertEqual(new_sum(1, 2, 3), 6)
 
-    @expectedFailure
     def test_uncurry(self):
         "Test that uncurrying works."
         # This is silly but I can't think of anything better.
