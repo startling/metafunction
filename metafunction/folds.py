@@ -7,16 +7,8 @@ control over direction, starting value, etc etc. The most similar to python's
 `reduce` is foldl1, which starts with the first value of a list.
 """
 
-from metafunction import scanr, scanl, scanr1, scanl1, compose
+from metafunction import scanr, scanl, scanr1, scanl1, compose, return_last
 from functools import partial
-
-
-def return_last(iter):
-    """Return the last thing `iter` yields. We'll use this to cosntruct all
-    of the others here."""
-    for thing in iter:
-        pass
-    return thing
 
 
 construct_fold = partial(compose, return_last)

@@ -6,6 +6,8 @@ to use them in certain contexts, e.g. composing functions.
 Also take a look at the `operator` module.
 """
 
+from operator import itemgetter
+
 
 def cons(l, x):
     """Given a list and an object, return the list with that object appended.
@@ -15,3 +17,13 @@ def cons(l, x):
     than prepending it.
     """
     return l + [x]
+
+
+def return_last(iter):
+    """Return the last thing an iterator yields. This can be useful for, e.g.,
+    constructing `foldl` and `foldr`. It's better than list(iter)[-1] because
+    it doesn't store a big list in memory.
+    """
+    for thing in iter:
+        pass
+    return thing
