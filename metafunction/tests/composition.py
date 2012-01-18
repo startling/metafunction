@@ -32,6 +32,18 @@ class TestComposition(TestCase):
         function = compose(lambda x: x + 1, lambda x: x + 2, sum)
         self.assertEqual(function([5, 3]), 11)
 
+    def test_order(self):
+        "Test that composed functions work in the correct order."
+        filter_fives = partial(filter, lambda x: x != 5)
+        # complicated function that only works if it's applied correctly.
+        function = compose(lambda x: x - 1, lambda x: x*2, sum, filter_fives)
+        # the proper order of things:
+        # * filter out the fives. [5, 3, 1] -> [3, 1]
+        # * sum the items of the list. [3, 1] -> 4
+        # * multiply by two. 4 -> 8
+        # * subtract one. 8 -> 7
+        self.assertEqual(function([5, 3, 1]), 7)
+
 
 if __name__ == "__main__":
     main()
