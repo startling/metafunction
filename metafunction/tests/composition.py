@@ -7,7 +7,6 @@ from metafunction import compose
 
 
 class TestComposition(TestCase):
-    @expectedFailure
     def test_basic(self):
         """A trivial example for composition; sum numbers that are not 5.
 
@@ -27,7 +26,6 @@ class TestComposition(TestCase):
         for input, output in cases:
             self.assertEqual(function(input), output)
 
-    @expectedFailure
     def test_multiple(self):
         "Test whether we can compose more than one function."
         # basically, add 3 to the sum of a list.
