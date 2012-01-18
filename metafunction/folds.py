@@ -29,5 +29,8 @@ def foldl1(function, folds):
     """
     return foldl(function, folds[0], folds[1:])
 
-def foldr1():
-    pass
+def foldr1(function, folds):
+    """Reduce `folds` with the function `function`, starting with
+    `function(folds[-2], folds[-1])` and working backwards.
+    """
+    return foldr(function, folds[-1], folds[:-1])
