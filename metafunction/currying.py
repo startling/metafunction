@@ -8,6 +8,9 @@ composing functions, when you want one function to gather its arguments from
 a list returned by another function.
 
 e.g., curry(f(1, 2)) is equivalent to f([1, 2]).
+
+`uncurry` does the opposite; that is, it returns a function that gathers its
+arguments from a given list and dictionary.
 """
 
 
@@ -21,4 +24,9 @@ def curry(function):
 
 
 def uncurry(function):
-    pass
+    """Given a function that gets it arguments normally, return a function
+    that gathers them from a given list and optional dictionary.
+    """
+    def uncurried(args, kwargs={}):
+        return function(*args, **kwargs)
+    return uncurried
