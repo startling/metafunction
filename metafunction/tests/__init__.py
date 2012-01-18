@@ -3,3 +3,4 @@
 """ A set of tests for these higher-order functions. """
 
 from metafunction.tests.composition import *
+from metafunction.tests.currying import *
