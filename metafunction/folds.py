@@ -15,8 +15,13 @@ def foldl(function, accumulator, folds):
         accumulator = function(accumulator, f)
     return accumulator
 
-def foldr():
-    pass
+def foldr(function, accumulator, folds):
+    """Reduce `folds` with the function `function`, starting with
+    `function(folds[-1], accumulator)` and working backwards.
+    """
+    for f in folds[::-1]:
+        accumulator = function(f, accumulator)
+    return accumulator
 
 def foldl1(function, folds):
     """Reduce `folds` with the function `function`, starting with
