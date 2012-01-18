@@ -11,12 +11,10 @@ class TestScanl(TestCase):
         "Given some arguments, return a list from the scanl iterator."
         return list(scanl(*args))
 
-    @expectedFailure
     def test_scanl_basic(self):
         """Test that left scans basically work."""
         self.assertEqual(self.scan(add, 2, [1, 2, 3]), [2, 3, 5, 8])
 
-    @expectedFailure
     def test_scanl_order(self):
         """Test that left scans are applied in the correct order.
 
@@ -27,7 +25,6 @@ class TestScanl(TestCase):
         """
         self.assertEqual(self.scan(pow, 2, [1, 2, 3]), [2, 2, 4, 64])
 
-    @expectedFailure
     def test_scanl1(self):
         "Test that scanl1 basically works."
         self.assertEqual(list(scanl1(add, [1, 2, 3])), [1, 3, 6])
@@ -38,12 +35,10 @@ class TestScanr(TestCase):
         "Given some arguments, return a list from the scanr iterator."
         return list(scanr(*args))
 
-    @expectedFailure
     def test_scanr_basic(self):
         """Test that right scans basically work."""
         self.assertEqual(self.scan(add, 2, [1, 2, 3]), [2, 5, 7, 8])
 
-    @expectedFailure
     def test_scanr_order(self):
         """Test that right scan are applied in the correct order.
 
@@ -54,7 +49,6 @@ class TestScanr(TestCase):
         """
         self.assertEqual(self.scan(pow, 2, [1, 2, 3]), [2, 9, 512, 1])
 
-    @expectedFailure
     def test_scanr1(self):
         "Test that scanr1 basically works."
         self.assertEqual(list(scanr1(add, [1, 2, 3])), [3, 5, 6])
