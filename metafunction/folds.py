@@ -7,30 +7,36 @@ control over direction, starting value, etc etc. The most similar to python's
 `reduce` is foldl1, which starts with the first value of a list.
 """
 
-def foldl(function, accumulator, folds):
-    """Reduce `folds` with the function `function`, starting with
-    `function(accumulator, folds[0])`.
-    """
-    for f in folds:
-        accumulator = function(accumulator, f)
-    return accumulator
+from metafunction import scanr, scanl, scanr1, scanl1, compose
+from functools import partial
 
-def foldr(function, accumulator, folds):
-    """Reduce `folds` with the function `function`, starting with
-    `function(folds[-1], accumulator)` and working backwards.
-    """
-    for f in folds[::-1]:
-        accumulator = function(f, accumulator)
-    return accumulator
 
-def foldl1(function, folds):
-    """Reduce `folds` with the function `function`, starting with
-    `function(folds[0], folds[1])`.
-    """
-    return foldl(function, folds[0], folds[1:])
+def return_last(iter):
+    """Return the last thing `iter` yields. We'll use this to cosntruct all
+    of the others here."""
+    for thing in iter:
+        pass
+    return thing
 
-def foldr1(function, folds):
-    """Reduce `folds` with the function `function`, starting with
-    `function(folds[-2], folds[-1])` and working backwards.
-    """
-    return foldr(function, folds[-1], folds[:-1])
+
+construct_fold = partial(compose, return_last)
+
+
+# Reduce `folds` with the function `function`, starting with
+#    `function(accumulator, folds[0])`.
+foldl = construct_fold(scanl)
+
+
+# Reduce `folds` with the function `function`, starting with
+#   `function(folds[-1], accumulator)` and working backwards.
+foldr = construct_fold(scanr)
+
+
+# Reduce `folds` with the function `function`, starting with
+#   `function(folds[0], folds[1])`.
+foldl1 = construct_fold(scanl1)
+
+
+# Reduce `folds` with the function `function`, starting with
+#   `function(folds[-2], folds[-1])` and working backwards.
+foldr1 = construct_fold(scanr1)
