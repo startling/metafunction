@@ -40,9 +40,9 @@ class TestFoldr(TestCase):
         """Test that right fold are applied in the correct order.
 
         E.g, foldr(pow, 2, [1, 2, 3]) should be applied like:
-        (1^2) = 1
-        (1^2) = 1
-        (1^3) = 1
+        (3^2) = 9
+        (2^9) = 512
+        (1^512) = 1
         """
         self.assertEqual(foldr(pow, 2, [1, 2, 3]), 1)
 
