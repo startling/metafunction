@@ -18,8 +18,11 @@ def foldl(function, accumulator, folds):
 def foldr():
     pass
 
-def foldl1():
-    pass
+def foldl1(function, folds):
+    """Reduce `folds` with the function `function`, starting with
+    `function(folds[0], folds[1])`.
+    """
+    return foldl(function, folds[0], folds[1:])
 
 def foldr1():
     pass
