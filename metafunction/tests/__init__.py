@@ -5,3 +5,4 @@
 from metafunction.tests.composition import *
 from metafunction.tests.currying import *
 from metafunction.tests.utilities import *
+from metafunction.tests.folds import *
