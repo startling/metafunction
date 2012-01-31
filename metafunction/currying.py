@@ -7,7 +7,7 @@ to have it gather the list from its arguments. This can be useful for
 composing functions, when you want one function to gather its arguments from
 a list returned by another function.
 
-e.g., curry(f(1, 2)) is equivalent to f([1, 2]).
+e.g., curry(f)(1, 2) is equivalent to f([1, 2]).
 
 `uncurry` does the opposite; that is, it returns a function that gathers its
 arguments from a given list and dictionary.
