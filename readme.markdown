@@ -9,6 +9,8 @@ _metafunction_ is a higher-order function library for Python. Here's what we've 
 
 If you're unsure about how something works, you can either look in the source (there are pretty extensive comments and docstrings), read the tests, or contact me.
 
+Thanks for being interested!
+
 ## Installation
 
 You can install straight from git using pip:
