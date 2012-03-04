@@ -26,3 +26,19 @@ class TestMemoize(unittest.TestCase):
     def test_add_together_memoized(self, args):
         a, b = args
         return a + b
+
+    @unittest.expectedFailure
+    @assert_memoizes([[1, 2, 3], [5, 6, 7], []])
+    def test_unhashables_append(self, l):
+        l.append(True)
+        return l
+
+    @unittest.expectedFailure
+    @assert_memoizes([({1: 12, 2:13}, 12), ([1, 2, 3], 13)])
+    def test_unhashables_nested(self, l):
+        return l[0]
+
+    @unittest.expectedFailure
+    @assert_memoizes([({1: 12, 2:{1:12, 2:13}}, 12), ([1, 2, 3], 13)])
+    def test_unhashables_more_nested(self, l):
+        return l[0]
