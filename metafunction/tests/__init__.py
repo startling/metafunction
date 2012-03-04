@@ -7,3 +7,4 @@ from metafunction.tests.currying import *
 from metafunction.tests.utilities import *
 from metafunction.tests.folds import *
 from metafunction.tests.scans import *
+from metafunction.tests.memoize import *
