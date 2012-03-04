@@ -22,7 +22,7 @@ class TestMemoize(unittest.TestCase):
     def test_add_one_memoized(self, num):
         return num + 1
 
-    @assert_memoizes([(1, 2), (2, 3)])
+    @assert_memoizes([(1, 2), (2, 3), (7, 13), (53, 97)])
     def test_add_together_memoized(self, args):
         a, b = args
         return a + b
