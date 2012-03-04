@@ -15,6 +15,8 @@ def memoize(function):
     return that saved value; otherwise, apply the arguments and keyword args
     to the function, save the result into the memo dictionary, and return the
     result.
+
+    Note: This only works on things that only ever take and return hashables!
     """
     memo = {}
     @wraps(function)
