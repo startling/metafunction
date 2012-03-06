@@ -6,7 +6,7 @@ _metafunction_ is a higher-order function library for Python. Here's what we've 
 * `curry` and `uncurry`, for extracting arguments from tuples or lists or putting them into one
 * `scanr`, `scanr1`, `scanl`, and `scanl1`, which are hard to explain unless you know Haskell...
 * `foldr`, `foldr1`, `foldl`, and `foldl`, which are similar to Python 2.x's `reduce` but offer you more control.
-* `memoize`, which memoizes functions that give and take __hashable values only__.
+* `memoize_hashable`, which memoizes functions that give and take __hashable values only__.
 
 If you're unsure about how something works, you can either look in the source (there are pretty extensive comments and docstrings), read the tests, or contact me.
 

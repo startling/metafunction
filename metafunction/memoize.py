@@ -9,14 +9,15 @@ def freeze_dict(d):
     return frozenset(d.items())
 
 
-def memoize(function):
+def memoize_hashable(function):
     """A decorator to memoize a function. This works by intercepting the given
     arguments and keyword arguments. If they exist in the `memo` dictionary,
     return that saved value; otherwise, apply the arguments and keyword args
     to the function, save the result into the memo dictionary, and return the
     result.
-
-    Note: This only works on things that only ever take and return hashables!
+    
+    Because this uses dictionaries, it only works on things that take only
+    hashable objects. This makes it more efficient but less general.
     """
     memo = {}
     @wraps(function)

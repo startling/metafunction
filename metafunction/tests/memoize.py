@@ -3,14 +3,14 @@
 
 import unittest
 from functools import wraps
-from metafunction.memoize import memoize
+from metafunction.memoize import memoize_hashable
 
 
 class TestMemoize(unittest.TestCase):
     def assert_memoizes(inputs):
         "Test that a memoized function works the same as the normal version."
         def testing_memoize(function):
-            memoized = memoize(function)
+            memoized = memoize_hashable(function)
             @wraps(function)
             def test_each(self):
                 for i in inputs:
